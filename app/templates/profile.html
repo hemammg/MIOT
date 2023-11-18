@@ -1,0 +1,20 @@
+<!-- profile.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>User Profile</h2>
+  <div class="profile-info">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <!-- Add more user-specific information here -->
+  </div>
+
+  {% if current_user.is_authenticated and current_user.role == 'client' %}
+    <h2>Client Profile</h2>
+    <div class="profile-info">
+      <!-- Display client-specific information here -->
+    </div>
+  {% endif %}
+{% endblock %}
+

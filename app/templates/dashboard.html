@@ -1,0 +1,39 @@
+<!-- dashboard.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="display-4">Welcome, {{ current_user.username }}!</h2>
+            <p class="lead">This is your Healthrive Dashboard.</p>
+            <a href="{{ url_for('profile') }}" class="btn btn-outline-info">View Profile</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">Logout</a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <!-- Quick Actions -->
+            <h4>Quick Actions</h4>
+            <!-- Replace with real links as needed -->
+            <a href="#" class="btn btn-primary">Add Device</a>
+            <a href="#" class="btn btn-secondary">View Notifications</a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <!-- List of Devices -->
+            <h4>Your Devices</h4>
+            <!-- This is just a placeholder; replace with real device data as needed -->
+            <ul class="list-group">
+                <li class="list-group-item">Device 1</li>
+                <li class="list-group-item">Device 2</li>
+                <!-- Add more device items here -->
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

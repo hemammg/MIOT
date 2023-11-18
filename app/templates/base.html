@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App's Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- Header: Navigation bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Healthrive</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    </li>
+                    <!-- You can add other navigation links here -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="jumbotron text-center">
+        <h1>Welcome to Healthrive</h1>
+        <p>Your one-stop platform for all things health and tech!</p>
+        <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <!-- Key Features -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>Feature 1</h3>
+                <p>Description about the feature.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Feature 2</h3>
+                <p>Description about the feature.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Feature 3</h3>
+                <p>Description about the feature.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Mechanism: Display flash messages -->
+    <div class="container mt-3">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main Content: Where the content of child templates will go -->
+    <div class="container mt-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container text-center">
+            <p>&copy; 2023 Healthrive. All rights reserved.</p>
+            <!-- Add links or other information as needed -->
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Tooltips initialization -->
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Register</h2>
+
+<form method="post">
+    {{ form.hidden_tag() }}
+    
+    <div class="form-group">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+        {% if form.username.errors %}
+            <div class="invalid-feedback" style="display: block;">
+                {% for error in form.username.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+        {% if form.email.errors %}
+            <div class="invalid-feedback" style="display: block;">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control") }}
+        {% if form.password.errors %}
+            <div class="invalid-feedback" style="display: block;">
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.confirm_password.label(class="form-label") }}
+        {{ form.confirm_password(class="form-control") }}
+        {% if form.confirm_password.errors %}
+            <div class="invalid-feedback" style="display: block;">
+                {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
+
+<p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+
+{% endblock %}
